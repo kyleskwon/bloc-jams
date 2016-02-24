@@ -27,7 +27,7 @@ html {
 
 .container {
     margin: 0 auto;
-    max-width: 64rm;
+    max-width: 64rem;
 }
 
 /* Medium and small screens (640px) */
@@ -41,12 +41,12 @@ html {
          padding-right: 1rem;
      }
      
-     column.full { width: 100%; }
-     column.two-thirds { width: 66.7%; }
-     column.half { width: 50%; }
-     column.third { width: 33.3%; }
-     column.fourth { width: 25%; }
-     column.flow-opposite { float: right; }
+     .column.full { width: 100%; }
+     .column.two-thirds { width: 66.7%; }
+     .column.half { width: 50%; }
+     .column.third { width: 33.3%; }
+     .column.fourth { width: 25%; }
+     .column.flow-opposite { float: right; }
  }
  
  /* Large screens (1024px) */
