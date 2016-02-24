@@ -24,3 +24,33 @@ html {
      position: relative; /* positioning will be explained in a resource */
      left: 2rem;
  }
+
+.container {
+    margin: 0 auto;
+    max-width: 64rm;
+}
+
+/* Medium and small screens (640px) */
+ @media (min-width: 640px) {
+  /* Style information will go here */
+     html { font-size: 112%; }
+     
+     .column {
+         float: left;
+         padding-left: 1rem;
+         padding-right: 1rem;
+     }
+     
+     column.full { width: 100%; }
+     column.two-thirds { width: 66.7%; }
+     column.half { width: 50%; }
+     column.third { width: 33.3%; }
+     column.fourth { width: 25%; }
+     column.flow-opposite { float: right; }
+ }
+ 
+ /* Large screens (1024px) */
+ @media (min-width: 1024px) {
+   /* Style information will go here */
+     html { font-size: 120%; }
+ }
