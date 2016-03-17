@@ -105,6 +105,7 @@ var clickHandler = function(targetElement) {
 };
 
 var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+
 var songRows = document.getElementsByClassName('album-view-song-item');
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
