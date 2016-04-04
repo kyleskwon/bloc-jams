@@ -105,6 +105,10 @@ var setCurrentAlbum = function(album) {
     }
 };
 
+var trackIndex = function(album, song) {
+    return album.songs.indexOf(song);
+};
+
 var updatePlayerBarSong = function() {
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
     $('.currently-playing .artist-name').text(currentAlbum.artist);
