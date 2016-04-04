@@ -12,16 +12,18 @@ var createSongRow = function(songNumber, songName, songLength) {
     var clickHandler = function() {
         var songNumber = $(this).attr('data-song-number');
         
-        if (currentlyPlayingSong !== null) {
-            var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSong + '"]');
-            currentlyPlayingCell.html(currentlyPlayingSong);
+        if (currentlyPlayingSongNumber !== null) {
+            var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
+            currentlyPlayingCell.html(currentlyPlayingSongNumber);
         }
-        if (songNumber !== currentlyPlayingSong) {
+        if (songNumber !== currentlyPlayingSongNumber) {
             $(this).html(pauseButtonTemplate);
-            currentlyPlayingSong = songNumber;
-        } else if (songNumber === currentlyPlayingSong) {
+            currentlyPlayingSongNumber = songNumber;
+            currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+        } else if (songNumber === currentlyPlayingSongNumber) {
             $(this).html(playButtonTemplate);
-            currentlyPlayingSong = null;
+            currentlyPlayingSongNumber = null;
+            currentSongFromAlbum = null;
         }
     };
     
@@ -29,7 +31,7 @@ var createSongRow = function(songNumber, songName, songLength) {
         var songNumberCell = $(this).find('.song-item-number');
         var songNumber = songNumberCell.attr('data-song-number');
         
-        if (songNumber !== currentlyPlayingSong) {
+        if (songNumber !== currentlyPlayingSongNumber) {
             songNumberCell.html(playButtonTemplate);
         }
     };
@@ -37,7 +39,7 @@ var createSongRow = function(songNumber, songName, songLength) {
         var songNumberCell = $(this).find('.song-item-number');
         var songNumber = songNumberCell.attr('data-song-number');
         
-        if (songNumber !== currentlyPlayingSong) {
+        if (songNumber !== currentlyPlayingSongNumber) {
             songNumberCell.html(songNumber);
         }
     };
