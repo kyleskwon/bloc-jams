@@ -145,7 +145,7 @@
 .player-bar .volume .seek-bar {
     display: inline-block;
     width: 5.75rem;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 @media (max-width: 640px) {
