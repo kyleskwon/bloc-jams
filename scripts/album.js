@@ -13,7 +13,6 @@ var createSongRow = function(songNumber, songName, songLength) {
         
         var songNumber = parseInt($(this).attr('data-song-number'));
         
-
         if (currentlyPlayingSongNumber !== null) {
             // Revert to song number for currently playing song because user started playing new song.
             var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
@@ -25,6 +24,7 @@ var createSongRow = function(songNumber, songName, songLength) {
             setSong(songNumber);
             currentSoundFile.play();
             updateSeekBarWhileSongPlays();
+            currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
             
             var $volumeFill = $('.volume .fill');
             var $volumeThumb = $('.volume .thumb');
@@ -142,7 +142,7 @@ var setupSeekBars = function() {
             var barWidth = $seekBar.width();
             var seekBarFillRatio = offsetX / barWidth;
             
-            if ($(this).parent().attr('class') == 'seek-control') {
+            if ($seekBar.parent().attr('class') == 'seek-control') {
                 seek(seekBarFillRatio * currentSoundFile.getDuration());
             } else {
                 setVolume(seekBarFillRatio);
@@ -151,7 +151,7 @@ var setupSeekBars = function() {
             updateSeekPercentage($seekBar, seekBarFillRatio);
         });
         
-        $(document).bind('mouseup.thumb', function(event) {
+        $(document).bind('mouseup.thumb', function() {
             $(document).unbind('mousemove.thumb');
             $(document).unbind('mouseup.thumb');
         });
